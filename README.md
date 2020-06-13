@@ -37,7 +37,7 @@ docker push ringcrl/chenng_server_bot
 ### 部署
 
 ```sh
-docker pull ringcrl/chenng_server_bot
+docker pull ringcrl/chenng_server_bot:latest
 
 docker run --name chenng_server_bot \
   -d -v /var/data:/app/data/ \
@@ -49,10 +49,10 @@ docker run --name chenng_server_bot \
 
 ```sh
 # 查找容器
-docker ps
+docker ps -a
 
 # 使用 -f 停止并删除容器
-docker rm -f 26cd26b1a5d5
+docker container rm -f 26cd26b1a5d5
 
 # 按照上一步【部署】，重新启动容器
 ```
