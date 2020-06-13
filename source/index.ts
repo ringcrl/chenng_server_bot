@@ -1,5 +1,6 @@
 import Telegraf from 'telegraf';
 import axios from 'axios';
+import logger from './logger';
 
 import { config } from './config';
 import agent from './agent';
@@ -10,6 +11,8 @@ const bot = new Telegraf(token, {
     agent: agent?.https
   }
 });
+
+bot.catch((err: Error) => logger.error(err.stack || err.message));
 
 function getHelpText() {
   return `
@@ -31,4 +34,4 @@ bot.hears(/^cc\s(.+)/gi, async (ctx) => {
 
 bot.launch();
 
-console.log('ready');
+logger.info('ready');

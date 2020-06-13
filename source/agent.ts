@@ -55,8 +55,8 @@ if (proxy.protocol && proxy.host && proxy.port) {
       break;
     case 'socks':
       agent = {
-        http: new SocksProxyAgent(proxyUrl),
-        https: (new SocksProxyAgent(proxyUrl) as HttpAgent) as HttpsAgent
+        http: new SocksProxyAgent(proxyUrl) as any,
+        https: new SocksProxyAgent(proxyUrl) as any
       };
       break;
   }

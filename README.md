@@ -2,19 +2,31 @@
 
 # 本地开发
 
+telegraf: https://telegraf.js.org/#/
+
 ```sh
 # 参考 .env.example 配置 .env
 
-# 代码编译
+# 方法1：代码编译、运行服务
 npm run watch
-
-# 运行服务
 npm run dev
+
+# 方法2：vscode debug 运行 index.ts
 ```
 
 # Docker 部署
 
 获取 [TG_TOKEN](https://core.telegram.org/bots#3-how-do-i-create-a-bot)
+
+## 本地构建
+
+```sh
+# 构建镜像
+docker build -t ringcrl/chenng_server_bot .
+
+# 发布镜像
+docker push ringcrl/chenng_server_bot
+```
 
 ## Github Actions
 
